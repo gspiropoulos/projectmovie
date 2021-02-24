@@ -14,10 +14,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.google.gson.internal.bind.util.ISO8601Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,14 +47,12 @@ public class ResponseActivity extends AppCompatActivity {
         mvRecyclerView.setAdapter(movieAdapter);
         ArrayList<MovieModel> movie = new ArrayList<>();
 
+
         PopularViewModel popularViewModel = new ViewModelProvider(this).get(PopularViewModel.class);
 
             popularViewModel.retrieveData(new PopularListener() {
                 @Override
                 public void onSuccessResponse(JsonResponse data) {
-
-
-//                    JsonResponse response = gson.fromJson(data, JsonResponse.class);
 
                     List<JsonResultsResponse> array=data.getResults();
 
@@ -64,15 +64,6 @@ public class ResponseActivity extends AppCompatActivity {
                         double vote = item.getVote_average();
                         movie.add(new MovieModel(poster, title, overview, releaseDate, vote));
                     }
-
-//                    for (int i = 0; i <array.size(); i++) {
-//                       String poster = data.getResults().get(i).getPoster_path();
-//                        String title = data.getResults().get(i).getTitle();
-//                        String  releaseDate = data.getResults().get(i).getRelease_date();
-//                        String overview = data.getResults().get(i).getOverview();
-//                        double vote = data.getResults().get(i).getVote_average();
-//                        movie.add(new MovieModel(poster, title, releaseDate, overview, vote));
-//                    }
 
                     movieAdapter.submitList(movie);
 
@@ -88,15 +79,8 @@ public class ResponseActivity extends AppCompatActivity {
 
 
 
-
     }
 
-//    private List<MovieModel> getMockUserList() {
-//
-//        List<MovieModel> movieList = new ArrayList<MovieModel>();
-//
-//        movieList.add(new MovieModel("Once Upon a Time in Holywood", "", "", "", 7.2));
-//        return movieList;
-//    }
+
 }
 
