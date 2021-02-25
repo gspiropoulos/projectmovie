@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Movieapp</string>
+    <string name="app_name">MovieLink</string>
     <string name="user" />
     <string name="search" />
     <string name="content_description_search" />
     <string name="content_description_user" />
-    <string name="page_title">MOVIELINK</string>
+    <string name="page_title">MovieLink</string>
     <string name="backcutton" />
     <string name="backbutton" />
 </resources>

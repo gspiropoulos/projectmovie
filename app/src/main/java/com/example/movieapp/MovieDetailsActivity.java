@@ -5,19 +5,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+public class MovieDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.movie_card);
     }
+
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+        Intent intent = getIntent();
+        Bundle parameters = getIntent().getExtras();
 
-        RecyclerView recyclerView = findViewById(R.id.recycler);
+        if (parameters != null) {
+
+            int id = parameters.getInt("Movie id");
+            Log.d("Movie id", String.valueOf(id));
+        }
     }
 }

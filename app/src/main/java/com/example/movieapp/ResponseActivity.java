@@ -62,7 +62,8 @@ public class ResponseActivity extends AppCompatActivity {
                         String  releaseDate = item.getRelease_date();
                         String overview = item.getOverview();
                         double vote = item.getVote_average();
-                        movie.add(new MovieModel(poster, title, overview, releaseDate, vote));
+                        int id=item.getId();
+                        movie.add(new MovieModel(poster, title, overview, releaseDate, vote , id));
                     }
 
                     movieAdapter.submitList(movie);

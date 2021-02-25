@@ -9,6 +9,7 @@ public class JsonResultsResponse {
     private String release_date;
     private String overview;
     private double vote_average;
+    private int id;
 
 
 
@@ -54,34 +55,42 @@ public class JsonResultsResponse {
         return vote_average;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof JsonResultsResponse)) return false;
-        JsonResultsResponse that = (JsonResultsResponse) o;
-        return
-                Objects.equals(title, that.title) &&
-                Objects.equals(poster_path, that.poster_path) &&
-                Objects.equals(release_date, that.release_date) &&
-                Objects.equals(overview, that.overview) &&
-                Objects.equals(vote_average, that.vote_average);
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash( title, poster_path, release_date, overview, vote_average);
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "JsonResultsResponse{" +
-                "genre_ids=" +
-                ", title='" + title + '\'' +
+                "title='" + title + '\'' +
                 ", poster_path='" + poster_path + '\'' +
                 ", release_date='" + release_date + '\'' +
                 ", overview='" + overview + '\'' +
-                ", vote_average='" + vote_average + '\'' +
+                ", vote_average=" + vote_average +
+                ", id=" + id +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof JsonResultsResponse)) return false;
+        JsonResultsResponse that = (JsonResultsResponse) o;
+        return Double.compare(that.vote_average, vote_average) == 0 &&
+                id == that.id &&
+                Objects.equals(title, that.title) &&
+                Objects.equals(poster_path, that.poster_path) &&
+                Objects.equals(release_date, that.release_date) &&
+                Objects.equals(overview, that.overview);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, poster_path, release_date, overview, vote_average, id);
     }
 
 

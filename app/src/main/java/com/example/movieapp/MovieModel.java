@@ -8,13 +8,23 @@ public class MovieModel {
     private String overview;
     private String year;
     private double vote;
+    private int iD;
 
-    public MovieModel(String poster, String title, String overview,  String year, double vote) {
+    public MovieModel(String poster, String title, String overview,  String year, double vote , int iD) {
         this.poster = poster;
 
         this.title = title;
         this.overview = overview;
         this.year = year;
+        this.iD=iD;
+    }
+
+    public int getiD() {
+        return iD;
+    }
+
+    public void setiD(int iD) {
+        this.iD = iD;
     }
 
     public double getVote() {
@@ -66,6 +76,7 @@ public class MovieModel {
         if (!(o instanceof MovieModel)) return false;
         MovieModel that = (MovieModel) o;
         return Double.compare(that.vote, vote) == 0 &&
+                iD == that.iD &&
                 Objects.equals(poster, that.poster) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(overview, that.overview) &&
@@ -73,18 +84,20 @@ public class MovieModel {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(poster, title, overview, year, vote);
-    }
-
-    @Override
     public String toString() {
         return "MovieModel{" +
                 "poster='" + poster + '\'' +
                 ", title='" + title + '\'' +
-                ", duration='" + overview + '\'' +
+                ", overview='" + overview + '\'' +
                 ", year='" + year + '\'' +
                 ", vote=" + vote +
+                ", iD=" + iD +
                 '}';
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(poster, title, overview, year, vote, iD);
+    }
+
 }

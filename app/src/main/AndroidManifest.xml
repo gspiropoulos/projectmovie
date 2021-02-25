@@ -17,16 +17,13 @@
         <activity android:name=".ResponseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.movieapp.ActivityMovieDetails"
-            android:parentActivityName="com.example.movieapp.MainActivity"/>
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.movieapp.MainActivity" />
+            android:name=".MovieDetailsActivity"
+            />
+
     </application>
 
 </manifest>
