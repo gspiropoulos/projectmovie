@@ -36,9 +36,7 @@ public class MovieAdapter extends ListAdapter<MovieModel, MovieViewHolder> {
             public void onItemClick(View v, int position) {
                 Intent intent = new Intent(v.getContext(), MovieDetailsActivity.class);
                 Bundle parameter = new Bundle();
-                ImageView img=v.findViewById(R.id.movieposter1);
                 int id = getItem(position).getiD();
-                Log.d("Click", String.valueOf(id));
                 parameter.putInt("Movie id", id);
                 intent.putExtras(parameter);
                 v.getContext().startActivity(intent);
