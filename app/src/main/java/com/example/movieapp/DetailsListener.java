@@ -1,7 +1,7 @@
 package com.example.movieapp;
 
 public interface DetailsListener {
-    void onSuccessResponse(JsonResponse2 data);
+    void onSuccessResponse(JsonResultsResponse data);
 
     void onErrorResponse(String data);
 }

@@ -7,12 +7,12 @@ public class MovieModel {
     private String title;
     private String overview;
     private String year;
-    private double vote;
+    private float vote;
     private int iD;
 
-    public MovieModel(String poster, String title, String overview,  String year, double vote , int iD) {
+    public MovieModel(String poster, String title, String overview,  String year, float vote , int iD) {
         this.poster = poster;
-
+        this.vote=vote;
         this.title = title;
         this.overview = overview;
         this.year = year;
@@ -23,17 +23,21 @@ public class MovieModel {
         return iD;
     }
 
+    public float getVote() {
+        return vote;
+    }
+
+    public void setVote(float vote) {
+        this.vote = vote;
+    }
+
     public void setiD(int iD) {
         this.iD = iD;
     }
 
-    public double getVote() {
-        return vote;
-    }
 
-    public void setVote(double vote) {
-        this.vote = vote;
-    }
+
+
 
     public String getPoster() {
         return poster;

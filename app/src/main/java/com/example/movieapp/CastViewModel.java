@@ -14,31 +14,29 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
 
-
-    public class DetailsViewModel extends AndroidViewModel {
+    public class CastViewModel extends AndroidViewModel {
 
         @NonNull
         private RequestQueue queue;
 
-        public DetailsViewModel (@NonNull Application application) {
+        public CastViewModel (@NonNull Application application) {
             super(application);
             queue = Volley.newRequestQueue(application);
         }
 
-        void retrieveData(String url ,DetailsListener details) {
+        void retrieveData(String url ,CastListener details) {
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-//
-//
+
+
                             Gson gson = new Gson();
 
-                            JsonResponse2 response2 = gson.fromJson(response, JsonResponse2.class);
-//                        String strResponse = gson.toJson(response1);
+                            JsonCastR response3 = gson.fromJson(response, JsonCastR.class);
 
-                            details.onSuccessResponse(response2);
+                            details.onSuccessResponse(response3);
                         }
                     },
                     new Response.ErrorListener() {
@@ -64,4 +62,5 @@ import com.google.gson.Gson;
 
 
 
-}
+    }
+
