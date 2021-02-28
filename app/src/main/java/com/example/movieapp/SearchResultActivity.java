@@ -85,6 +85,7 @@ public class SearchResultActivity extends AppCompatActivity {
                 parameter.putString("Search", query);
                 intent.putExtras(parameter);
                 startActivity(intent);
+                finish();
                 return true;
             }
 

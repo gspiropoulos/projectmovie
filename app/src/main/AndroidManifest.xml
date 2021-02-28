@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Movieapp"
     android:usesCleartextTraffic="true"
                                          >
-        <activity android:name=".ResponseActivity">
+        <activity android:name=".LaunchScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -23,6 +23,12 @@
         <activity
             android:name=".MovieDetailsActivity"
             />
+        <activity
+        android:name= ".ResponseActivity"/>
+        <activity
+            android:name= ".LogIn"/>
+        <activity
+            android:name= ".Register"/>
         <activity
             android:name=".SearchResultActivity"
             />
