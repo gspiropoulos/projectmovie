@@ -19,12 +19,21 @@ public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
     public void bind(MovieModel data) {
         ImageView poster = itemView.findViewById(R.id.movieposter1);
-        String url="http://image.tmdb.org/t/p/w500"+data.getPoster();
-        Glide.with(itemView.getContext()).load(url).into(poster);
+        if(data.getPoster()!=null){
+
+            String url="http://image.tmdb.org/t/p/w500"+data.getPoster();
+        Glide.with(itemView.getContext()).load(url).into(poster);}
+
         TextView title=itemView.findViewById(R.id.title);
-        title.setText(data.getTitle());
+        if(data.getTitle()!=null){
+
+            title.setText(data.getTitle());}
+
         TextView date= itemView.findViewById(R.id.date);
-        date.setText("Release date: "+   data.getYear());
+        if(data.getYear()!=null){
+
+            date.setText("Release date: "+   data.getYear());}
+
 
     }
 

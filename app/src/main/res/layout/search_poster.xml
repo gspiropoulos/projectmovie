@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/poster"
         android:layout_width="150dp"
-        android:layout_height="156dp"
+        android:layout_height="170dp"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"

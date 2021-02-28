@@ -34,12 +34,11 @@ public class PopularViewModel extends AndroidViewModel {
                 new Response.Listener<String>() {
                     @Override
                    public void onResponse(String response) {
-//
-//
+
+
                         Gson gson = new Gson();
 
                         JsonResponse response1 = gson.fromJson(response, JsonResponse.class);
-//                        String strResponse = gson.toJson(response1);
 
                         popular.onSuccessResponse(response1);
                         if(page<=response1.getTotal_pages()){retrieveData(popular);}

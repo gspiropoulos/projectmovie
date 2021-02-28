@@ -20,10 +20,12 @@ import com.example.movieapp.JsonResultsResponse;
 import com.example.movieapp.SearchListener;
 import com.google.gson.Gson;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 
 public class SearchViewModel extends AndroidViewModel {
     private String query;
+    private String query1;
     private int page;
     String url;
     @NonNull
@@ -41,7 +43,12 @@ public class SearchViewModel extends AndroidViewModel {
 
     void retrieveData(String query,SearchListener search) {
         page=page +1;
-        url = url +"&query=" + Uri.encode(query) + "&page=" + page;
+
+
+             url = url +"&query=" + Uri.encode(query) + "&page=" + page;
+
+
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override

@@ -73,18 +73,26 @@ public class MovieDetailsActivity extends AppCompatActivity {
             public void onSuccessResponse(JsonResultsResponse data) {
                 String poster = data.getPoster_path();
                 ImageView poster1 = findViewById(R.id.movieposter);
-                String url = "http://image.tmdb.org/t/p/w500" + poster;
-                Glide.with(getApplicationContext()).load(url).into(poster1);
+                if(data.getPoster_path()!=null){
+
+                    String url = "http://image.tmdb.org/t/p/w500" + poster;
+                Glide.with(getApplicationContext()).load(url).into(poster1);}
                 TextView textViewTitle = findViewById(R.id.title);
-                textViewTitle.setText("Title :" + data.getTitle());
+                if(data.getTitle()!=null){
+                textViewTitle.setText("Title :" + data.getTitle());}
                 TextView year = findViewById(R.id.year);
-                year.setText("Release date : " + "" + data.getRelease_date());
+                if(data.getRelease_date()!=null){
+                year.setText("Release date : " + "" + data.getRelease_date());}
                 TextView duration = findViewById(R.id.duration);
-                duration.setText("Runtime :" + "" + data.getRuntime() + "min");
+                if(data.getRuntime()!=0){
+                duration.setText("Runtime :" + "" + data.getRuntime() + "min");}
                 TextView synopsis = findViewById(R.id.synopsis);
-                synopsis.setText("Synopsis:" + "" + data.getOverview());
+                if(data.getOverview()!=null){
+                synopsis.setText("Synopsis:" + "" + data.getOverview());}
                 TextView rate = findViewById(R.id.rate);
-                rate.setText("Rating :" + data.getVote_average() + "/10");
+                if(data.getVote_average()!=0){
+                rate.setText("Rating :" + data.getVote_average() + "/10");}
+
                 Button fab = findViewById(R.id.button);
                 fab.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {

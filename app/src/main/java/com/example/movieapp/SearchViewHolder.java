@@ -24,12 +24,19 @@ public class SearchViewHolder extends RecyclerView.ViewHolder implements View.On
 
     public void bind(MovieModel data) {
         ImageView poster = itemView.findViewById(R.id.poster);
+        if(data.getPoster()!=null){
         String url="http://image.tmdb.org/t/p/w500"+data.getPoster();
-        Glide.with(itemView.getContext()).load(url).into(poster);
+        Glide.with(itemView.getContext()).load(url).into(poster);}
+
         TextView title=itemView.findViewById(R.id.poster_title);
-        title.setText("Title: " +data.getTitle());
+        if(data.getTitle()!=null){
+
+            title.setText("Title: " +data.getTitle());}
+
         TextView year =itemView.findViewById(R.id.poster_year);
-        year.setText("Release date : " + data.getYear());
+        if(data.getYear()!=null){
+
+            year.setText("Release date : " + data.getYear());}
         TextView rating=itemView.findViewById(R.id.rating);
         rating.setText("Rating :" + data.getVote()+"/10");
 
