@@ -29,10 +29,10 @@ public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
             title.setText(data.getTitle());}
 
-        TextView date= itemView.findViewById(R.id.date);
-        if(data.getYear()!=null){
-
-            date.setText("Release date: "+   data.getYear());}
+//        TextView date= itemView.findViewById(R.id.date);
+//        if(data.getYear()!=null){
+//
+//            date.setText("Release date: "+   data.getYear());}
 
 
     }

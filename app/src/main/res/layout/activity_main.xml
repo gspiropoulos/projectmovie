@@ -18,7 +18,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/top_app_bar"
         android:background="@color/black"
-        app:title="@string/page_title" />
+        app:title="@string/page_title"
+        app:titleTextColor="@color/violet"/>
 
 
 
@@ -30,7 +31,8 @@
         android:layout_marginLeft="24dp"
         android:layout_marginTop="10dp"
         android:text="Popular Movies"
-        android:textColor="@color/white"
+
+        android:textColor="@color/violet"
         android:textSize="24dp"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toTopOf="@id/recycler"

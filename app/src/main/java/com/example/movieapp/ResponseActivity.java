@@ -30,7 +30,6 @@ import java.util.List;
 public class ResponseActivity extends AppCompatActivity {
     SearchView searchView;
 
-    private final String url = "https://api.themoviedb.org/3/movie/popular?api_key=3545652a5f9a12aa802c1fadad60d345&language=en-US&page=1";
     private String poster;
     private String title;
     private String releaseDate;
@@ -41,7 +40,7 @@ public class ResponseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-setSupportActionBar(findViewById(R.id.topAppBar));
+        setSupportActionBar(findViewById(R.id.topAppBar));
     }
 
     @Override

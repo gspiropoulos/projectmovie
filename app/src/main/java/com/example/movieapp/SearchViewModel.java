@@ -43,8 +43,6 @@ public class SearchViewModel extends AndroidViewModel {
 
     void retrieveData(String query,SearchListener search) {
         page=page +1;
-
-
              url = url +"&query=" + Uri.encode(query) + "&page=" + page;
 
 

@@ -108,7 +108,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent intent = new Intent();
                         intent.setAction(Intent.ACTION_SEND);
-                        intent.setType("text/plain"); // gia eikona "image/*"
+                        intent.setType("text/plain");
 
 
                         intent.putExtra(Intent.EXTRA_TEXT, "https://www.themoviedb.org/movie/" + data.getId());
