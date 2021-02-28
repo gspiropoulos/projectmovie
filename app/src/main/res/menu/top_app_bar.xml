@@ -10,12 +10,7 @@
         android:title="Search"/>
 
 
-    <item
-        android:id="@+id/user"
-        android:icon="@drawable/ic_baseline_person_add_alt_1_24"
-        android:title="@string/user"
-        android:contentDescription="@string/content_description_user"
-        app:showAsAction="ifRoom" />
+
 
 
 

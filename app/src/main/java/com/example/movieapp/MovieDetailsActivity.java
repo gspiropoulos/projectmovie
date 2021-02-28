@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -50,7 +52,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle parameters = getIntent().getExtras();
         Toolbar toolbar = (Toolbar) findViewById(R.id.topAppBar2);
-        toolbar.setNavigationIcon(R.drawable.abc_vector_test); // your drawable
+        toolbar.setNavigationIcon(R.drawable.abc_vector_test);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,22 +80,35 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 TextView year = findViewById(R.id.year);
                 year.setText("Release date : " + "" + data.getRelease_date());
                 TextView duration = findViewById(R.id.duration);
-                duration.setText("Runtime :" + "" + data.getRuntime());
+                duration.setText("Runtime :" + "" + data.getRuntime() + "min");
                 TextView synopsis = findViewById(R.id.synopsis);
                 synopsis.setText("Synopsis:" + "" + data.getOverview());
-                TextView rate=findViewById(R.id.rate);
-                rate.setText("Rating :" + data.getVote_average() +"/10");
-                Button btn = findViewById(R.id.share_button);
-                btn.setOnClickListener(new View.OnClickListener() {
+                TextView rate = findViewById(R.id.rate);
+                rate.setText("Rating :" + data.getVote_average() + "/10");
+                Button fab = findViewById(R.id.button);
+                fab.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         Intent intent = new Intent();
                         intent.setAction(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("https://www.themoviedb.org/movie/" +data.getId()));
-                        v.getContext().startActivity( intent, null);
+                        intent.setData(Uri.parse("https://www.themoviedb.org/movie/" + data.getId()));
+                        v.getContext().startActivity(intent, null);
+                    }
+                });
+                Button shareBtn = findViewById(R.id.share_button);
+                shareBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_SEND);
+                        intent.setType("text/plain"); // gia eikona "image/*"
+
+
+                        intent.putExtra(Intent.EXTRA_TEXT, "https://www.themoviedb.org/movie/" + data.getId());
+                        Intent shareIntent = Intent.createChooser(intent, null);
+                        v.getContext().startActivity(shareIntent, null);
                     }
                 });
             }
-
             @Override
             public void onErrorResponse(String data) {
 
@@ -104,34 +119,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         });
 
 
-//        CastViewModel castViewModel = new ViewModelProvider(this).get(CastViewModel.class);
-//        castViewModel.retrieveData(creditsUrl, new CastListener() {
-//
-//
-//
-//            @Override
-//            public void onSuccessResponse(JsonCastR data) {
-//                List<JsonResponseCast> array = data.getCast();
-//                List<JsonResponseCrew> array2=data.getCrew();
-//                 TextView director = findViewById(R.id.director);
-//                TextView cast = findViewById(R.id.cast);
-//                for (int i=0;i<array2.size();i++) {
-//                    director1 =data.getCrew().get(i).getKnown_for_department();
-//                    if (director1.contains("Directing") ) {
-//                        director.setText("Director : " +data.getCast().get(i).getName());
-//                    }
-//
-//                    }
-//
-//
-//                }
-//
-//                @Override
-//                public void onErrorResponse (String data){
-//
-//                }
-//
-//        });
+
 
     }
         private String setMovieId ( int movieId){

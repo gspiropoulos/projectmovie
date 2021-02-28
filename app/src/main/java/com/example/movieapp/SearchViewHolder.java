@@ -27,9 +27,11 @@ public class SearchViewHolder extends RecyclerView.ViewHolder implements View.On
         String url="http://image.tmdb.org/t/p/w500"+data.getPoster();
         Glide.with(itemView.getContext()).load(url).into(poster);
         TextView title=itemView.findViewById(R.id.poster_title);
-        title.setText(data.getTitle());
+        title.setText("Title: " +data.getTitle());
         TextView year =itemView.findViewById(R.id.poster_year);
-        year.setText(data.getYear());
+        year.setText("Release date : " + data.getYear());
+        TextView rating=itemView.findViewById(R.id.rating);
+        rating.setText("Rating :" + data.getVote()+"/10");
 
     }
 
