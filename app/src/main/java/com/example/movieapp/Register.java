@@ -58,10 +58,9 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-//                if (password.length() <= 6) {
-//                    registerPassword.setError("Password must be over 6 characters");
-//                    return;
-//                }
+                if (password.length() <= 6) {
+                    Toast.makeText(Register.this, "Password must be over 6 characters", Toast.LENGTH_SHORT).show();
+                }
 
 
                 fAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
